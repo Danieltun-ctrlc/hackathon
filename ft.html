@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+
+{% block color %}
+<li><a href="{{url_for('home')}}" id='home' class="nav-link px-2 pr-3 text-white">Home</a></li>
+<li><a href="{{url_for('feat')}}" class="nav-link px-2 text-secondary">Features</a></li>
+
+<li><a href="{{url_for('requestp')}}" class="nav-link px-2 text-white">Requests</a></li>
+<li><a href="{{url_for('event')}}" class="nav-link px-2 text-white">Mementos</a></li>
+<li><a href="{{url_for('gift')}}" class="nav-link px-2 text-white">Gifts</a></li>
+
+
+{% endblock %}
+{% block change %}
+{% if log %}
+<div class="text-end"> <h4>{{ acc[0]}}</h4></div>
+{% else %}
+<div class="text-end">
+    <!-- Login Form -->
+    <form action="/login" method="POST" style="display: inline;">
+        <button type="submit" class="btn btn-outline-light me-2">Login</button>
+    </form>
+
+    <!-- Sign-up Form -->
+    <form action="/signup" method="POST" style="display: inline;">
+        <button type="submit" class="btn btn-warning">Sign-up</button>
+    </form>
+            </div>
+{% endif %}
+
+{% endblock %}
+{% block content %}
+<div class="px-4 py-5 my-5 text-center">
+     <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-raised-hand" viewBox="0 0 16 16">
+  <path d="M6 6.207v9.043a.75.75 0 0 0 1.5 0V10.5a.5.5 0 0 1 1 0v4.75a.75.75 0 0 0 1.5 0v-8.5a.25.25 0 1 1 .5 0v2.5a.75.75 0 0 0 1.5 0V6.5a3 3 0 0 0-3-3H6.236a1 1 0 0 1-.447-.106l-.33-.165A.83.83 0 0 1 5 2.488V.75a.75.75 0 0 0-1.5 0v2.083c0 .715.404 1.37 1.044 1.689L5.5 5c.32.32.5.754.5 1.207"/>
+  <path d="M8 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3"/>
+</svg>
+        </div>
+    <h1 class="display-5 fw-bold text-body-emphasis">Generosity</h1>
+    <hr>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-4" id="text_ft">show your kindness to the world by helping to the problems that people are facing. You can check on the request page and then you will see people's problems and requests. you can help them by submitting or booking the request. you cannot submit your own request. by 1 submission , you will get 10 points which these points can be used to purchase gifts. You cannot reject or don't take action once you already booked the request otherwise you can get penalty fees.  Check out to the request page to find out more.</p>
+
+    </div>
+  </div>
+<hr>
+<div class="px-4 py-5 my-5 text-center">
+     <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
+  <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
+</svg>
+        </div>
+    <h1 class="display-5 fw-bold text-body-emphasis">Festivity</h1>
+    <hr>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-4" id="text_ft2">have fun and go out with the people around the world to create memories and enjoyment. Mementos allows the users to check the events and picnics that people are hosting and they can join them by contacting each other via email or  other platform due to the security reasons. You can also host your own events and event people around the world. Check out the mementos page to find out more.</p>
+
+    </div>
+  </div>
+<hr>
+<div class="px-4 py-5 my-5 text-center">
+     <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-gift-fill" viewBox="0 0 16 16">
+  <path d="M3 2.5a2.5 2.5 0 0 1 5 0 2.5 2.5 0 0 1 5 0v.006c0 .07 0 .27-.038.494H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h2.038A3 3 0 0 1 3 2.506zm1.068.5H7v-.5a1.5 1.5 0 1 0-3 0c0 .085.002.274.045.43zM9 3h2.932l.023-.07c.043-.156.045-.345.045-.43a1.5 1.5 0 0 0-3 0zm6 4v7.5a1.5 1.5 0 0 1-1.5 1.5H9V7zM2.5 16A1.5 1.5 0 0 1 1 14.5V7h6v9z"/>
+</svg>
+        </div>
+    <h1 class="display-5 fw-bold text-body-emphasis">Community</h1>
+    <hr>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-4" id="text_ft3">this website's main goal is improving the societies in general. We aim to provide the genuine and positive community where people can release their stress and having fun together. Everyone can join regardless of the age, religion and so on. Life is short and to make it meaningful, we should explore together , having fun together and helping each other out.</p>
+
+    </div>
+  </div>
+{% endblock %}

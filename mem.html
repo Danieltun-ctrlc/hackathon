@@ -1,0 +1,190 @@
+{% extends "base.html" %}
+{% block color %}
+<li><a href="{{url_for('home')}}" id='home' class="nav-link px-2 pr-3 text-white">Home</a></li>
+<li><a href="{{url_for('feat')}}" class="nav-link px-2 text-white">Features</a></li>
+
+<li><a href="{{url_for('requestp')}}" class="nav-link px-2 text-white">Requests</a></li>
+<li><a href="{{url_for('event')}}" class="nav-link px-2 text-secondary">Mementos</a></li>
+<li><a href="{{url_for('gift')}}" class="nav-link px-2 text-white">Gifts</a></li>
+
+
+{% endblock %}
+{% block change %}
+{% if log %}
+<div class="text-end"> <h4>{{ acc[0]}}</h4></div>
+{% else %}
+<div class="text-end">
+    <!-- Login Form -->
+    <form action="/login" method="POST" style="display: inline;">
+        <button type="submit" class="btn btn-outline-light me-2">Login</button>
+    </form>
+
+    <!-- Sign-up Form -->
+    <form action="/signup" method="POST" style="display: inline;">
+        <button type="submit" class="btn btn-warning">Sign-up</button>
+    </form>
+            </div>
+{% endif %}
+
+{% endblock %}
+
+{% block content %}
+<!--<div>-->
+<!--<div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px; height: 700px">-->
+<!--    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">-->
+<!--      <svg class="bi pe-none me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>-->
+<!--      <span class="fs-4">Sidebar</span>-->
+<!--    </a>-->
+<!--    <hr>-->
+<!--    <ul class="nav nav-pills flex-column mb-auto">-->
+<!--      <li class="nav-item">-->
+<!--        <a href="#" class="nav-link active" aria-current="page">-->
+<!--          <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"></use></svg>-->
+<!--          Home-->
+<!--        </a>-->
+<!--      </li>-->
+<!--      <li>-->
+<!--        <a href="#" class="nav-link text-white">-->
+<!--          <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>-->
+<!--          Dashboard-->
+<!--        </a>-->
+<!--      </li>-->
+<!--      <li>-->
+<!--        <a href="#" class="nav-link text-white">-->
+<!--          <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"></use></svg>-->
+<!--          Orders-->
+<!--        </a>-->
+<!--      </li>-->
+<!--      <li>-->
+<!--        <a href="#" class="nav-link text-white">-->
+<!--          <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>-->
+<!--          Products-->
+<!--        </a>-->
+<!--      </li>-->
+<!--      <li>-->
+<!--        <a href="#" class="nav-link text-white">-->
+<!--          <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>-->
+<!--          Customers-->
+<!--        </a>-->
+<!--      </li>-->
+<!--    </ul>-->
+<!--    <hr>-->
+<!--    <div class="dropdown">-->
+<!--      <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="true">-->
+<!--        <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">-->
+<!--        <strong>mdo</strong>-->
+<!--      </a>-->
+<!--      <ul class="dropdown-menu dropdown-menu-dark text-small shadow">-->
+<!--        <li><a class="dropdown-item" href="#">New project...</a></li>-->
+<!--        <li><a class="dropdown-item" href="#">Settings</a></li>-->
+<!--        <li><a class="dropdown-item" href="#">Profile</a></li>-->
+<!--        <li><hr class="dropdown-divider"></li>-->
+<!--        <li><a class="dropdown-item" href="#">Sign out</a></li>-->
+<!--      </ul>-->
+<!--    </div>-->
+<!--  </div>-->
+
+<!--<div class="status-box">-->
+<!--    <div class="profile-section">-->
+<!--      <img src="profile-picture.jpg" alt="Profile" class="profile-pic">-->
+<!--      <input type="text" placeholder="What's on your mind, [Name]?" class="status-input">-->
+<!--    </div>-->
+<!--    <hr class="divider">-->
+<!--    <div class="action-buttons">-->
+<!--      <button class="action-btn live-video">-->
+<!--        <span>📹</span> Live video-->
+<!--      </button>-->
+<!--      <button class="action-btn photo-video">-->
+<!--        <span>🖼️</span> Photo/video-->
+<!--      </button>-->
+<!--      <button class="action-btn feeling-activity">-->
+<!--        <span>😊</span> Feeling/activity-->
+<!--      </button>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  </div>-->
+
+
+<div class="main-container">
+    <!-- Sidebar -->
+    <div class="sidebar d-flex flex-column flex-shrink-0 p-3 text-bg-dark">
+      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+        <span class="fs-4" style="color: green;">Confi</span>
+      </a>
+      <hr>
+      <ul class="nav nav-pills flex-column mb-auto">
+        <li class="nav-item">
+          <a href="#" class="nav-link active" aria-current="page">
+            Home
+          </a>
+        </li>
+
+      </ul>
+      <hr>
+
+    </div>
+
+
+  <div class="content">
+  <form action="/events" method="POST" class="status-form">
+    <div class="status-box">
+      <h3>What events do you want to host and share with us?</h3>
+      <div class="profile-section">
+        <input
+                style="color: black;"
+          type="text"
+          name="topic"
+          placeholder="What is the topic?"
+          class="status-input"
+          required
+        >
+
+        <input
+                style="color: black;"
+          type="text"
+          name="status"
+          placeholder="What's on your mind?"
+          class="status-input"
+          required
+        >
+
+        <div class="submit-section">
+        <button type="submit" class="btn btn-dark rounded-pill px-3">Post</button>
+      </div>
+      </div>
+    </div>
+  </form>
+    {% if log %}
+    {% else %}
+
+       <h3 class="error-message">You have not login yet!</h3>
+    {% endif %}
+    <div class="scrollable-questions">
+  <div class="scrollable-questions">
+    {% for block in rp %}
+      <div class="question-block">
+        <h4>{{block[1]}}</h4>
+        <hr>
+        <span>{{block[2]}}</span>
+        <br>
+        <span class="small-gray-text">By {{block[0]}}.</span>
+        <hr>
+
+      </div>
+    {% endfor %}
+</div>
+  </div>
+</div>
+</div>
+</div>
+
+
+
+
+
+<script>
+
+</script>
+
+
+{% endblock %}

@@ -1,0 +1,160 @@
+{% extends "base.html" %}
+{% block color %}
+<li><a href="{{url_for('home')}}" id='home' class="nav-link px-2 pr-3 text-white">Home</a></li>
+<li><a href="{{url_for('feat')}}" class="nav-link px-2 text-white">Features</a></li>
+
+<li><a href="{{url_for('requestp')}}" class="nav-link px-2 text-white">Requests</a></li>
+<li><a href="{{url_for('event')}}" class="nav-link px-2 text-white">Mementos</a></li>
+<li><a href="{{url_for('gift')}}" class="nav-link px-2 text-secondary">Gifts</a></li>
+
+
+{% endblock %}
+{% block change %}
+{% if log %}
+<div class="text-end"> <h4>{{ acc[0]}}</h4></div>
+{% else %}
+<div class="text-end">
+    <!-- Login Form -->
+    <form action="/login" method="POST" style="display: inline;">
+        <button type="submit" class="btn btn-outline-light me-2">Login</button>
+    </form>
+
+    <!-- Sign-up Form -->
+    <form action="/signup" method="POST" style="display: inline;">
+        <button type="submit" class="btn btn-warning">Sign-up</button>
+    </form>
+            </div>
+{% endif %}
+
+{% endblock %}
+
+{% block content %}
+<div class="main-container">
+    <!-- Sidebar -->
+    <div class="sidebar d-flex flex-column flex-shrink-0 p-3 text-bg-dark">
+      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+        <span class="fs-4" style="color: green;">Confi</span>
+      </a>
+      <hr>
+      <ul class="nav nav-pills flex-column mb-auto">
+        <li class="nav-item">
+          <a href="#" class="nav-link active" aria-current="page">
+            Home
+          </a>
+        </li>
+        <li>
+
+
+                <a href="#" class="nav-link text-white">
+                  Points <span style="color: green;">{{ po }}</span>
+                </a>
+
+
+        </li>
+      </ul>
+      <hr>
+
+    </div>
+<div class="content">
+    <div  id="more__">
+        <div class="container mt-4">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card" style="width: 16rem;">
+        <img src="/static/spotify.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Spotify gift card</h5>
+          <p class="card-text">3 months of free.</p>
+          <a href="#" class="btn btn-primary">50 points</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card" style="width: 16rem;">
+        <img src="./static/steam.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Steam gift card</h5>
+          <p class="card-text"> can be used to redeem the paid games.</p>
+          <a href="#" class="btn btn-primary">40 points</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card" style="width: 16rem;">
+        <img src="./static/macbook.png" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Apple laptop</h5>
+          <p class="card-text">MacBook Air (13-inch) Apple M1 Chip.</p>
+          <a href="#" class="btn btn-primary">200 points</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card" style="width: 16rem;">
+        <img src="./static/nintendo.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Nintendo</h5>
+          <p class="card-text">Nintendo Switch Console OLED with Neon Red/Blue JoyconNintendo Switch.</p>
+          <br>
+          <a href="#" class="btn btn-primary">150 points</a>
+        </div>
+      </div>
+
+    </div>
+      <div class="container mt-4">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card" style="width: 16rem;">
+        <img src="./static/keyboard.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Mechanical keyboard</h5>
+          <p class="card-text">Mechanical Gaming Keyboard,RGB 104 Keys Ultra-Slim Rainbow LED Backlit USB Wired Keyboard with Blue Switches,Durable ABS Keycaps/Anti-Ghosting/Spill-Resistant Mechanical Keyboard for PC Mac Xbox Gamer.</p>
+          <a href="#" class="btn btn-primary">80 points</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card" style="width: 16rem;">
+        <img src="./static/mouse.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Gaming mouse</h5>
+          <p class="card-text">Wireless Lightweight Gaming Mouse, Ultralight Honeycomb Mice with RGB Backlit.</p>
+          <a href="#" class="btn btn-primary">90 points</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card" style="width: 16rem;">
+        <img src="./static/sony.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Sony headphones</h5>
+          <p class="card-text">WH-1000XM5 Wireless Noise Cancelling Headphones.</p>
+          <a href="#" class="btn btn-primary">300 points</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card" style="width: 16rem;">
+        <img src="./static/book.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Man and his symbols</h5>
+          <p class="card-text">A book that explain collective the unconsciousness.</p>
+          <a href="#" class="btn btn-primary">30 points</a>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>
+
+
+    </div>
+
+
+
+</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    {% block styles %}
+        <!-- Bootstrap CSS -->
+        {{    bootstrap.load_css()     }}
+    {% endblock %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Micro+5&family=Micro+5+Charted&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./static/custom_style.css">
+    <title>{% block title %}{% endblock %}</title>
+
+</head>
+<body>
+<header class="p-3 text-bg-dark">
+    <div class="container-flauid">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="25" fill="currentColor" class="bi bi-reception-4" viewBox="0 0 16 16" color="green">
+  <path d="M0 11.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5zm4-3a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5zm4-3a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5zm4-3a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v11a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5z"/>
+</svg>
+          <h2 class="micro-5-regular mt-2">Confi</h2>
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+            {% block color %}
+         <li><a href="{{url_for('home')}}" id='home' class="nav-link px-2 pr-3 text-secondary">Home</a></li>
+<li><a href="{{url_for('feat')}}" class="nav-link px-2 text-white">Features</a></li>
+
+<li><a href="{{url_for('requestp')}}" class="nav-link px-2 text-white">Requests</a></li>
+<li><a href="{{url_for('event')}}" class="nav-link px-2 text-white">Mementos</a></li>
+<li><a href="{{url_for('gift')}}" class="nav-link px-2 text-white">Gifts</a></li>
+
+            {% endblock %}
+
+        </ul>
+
+          {% block change %}
+        <div class="text-end">
+    <!-- Login Form -->
+    <form action="/login" method="POST" style="display: inline;">
+        <button type="submit" class="btn btn-outline-light me-2">Login</button>
+    </form>
+
+    <!-- Sign-up Form -->
+    <form action="/signup" method="POST" style="display: inline;">
+        <button type="submit" class="btn btn-warning">Sign-up</button>
+    </form>
+            </div>
+            {% endblock %}
+
+      </div>
+    </div>
+  </header>
+
+    {% block content %}
+
+    {% endblock %}
+
+{{    bootstrap.load_js()     }}
+</body>
+</html>

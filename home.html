@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+
+{% block change %}
+{% if log %}
+<div class="text-end"> <h4>{{ acc[0]}}</h4></div>
+{% else %}
+<div class="text-end">
+    <!-- Login Form -->
+    <form action="/login" method="POST" style="display: inline;">
+        <button type="submit" class="btn btn-outline-light me-2">Login</button>
+    </form>
+
+    <!-- Sign-up Form -->
+    <form action="/signup" method="POST" style="display: inline;">
+        <button type="submit" class="btn btn-warning">Sign-up</button>
+    </form>
+            </div>
+{% endif %}
+
+{% endblock %}
+{%block content %}
+
+
+{{ super() }}
+
+<div class="row py-lg-5 my-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Welcome to the <span style="color:green">Confi!</span></h1>
+          <br>
+          <br>
+        <p class="lead text-body-secondary">You can spread kindness in your community, win prizes and gifts, have fun, and create lasting memories with your confidants!</p>
+
+      </div>
+    </div>
+<div class="container" >
+<div class="slider-container">
+        <div class="slides">
+            <div class="slide">
+                <img src="./static/helping.jpeg" alt="Slide 1">
+            </div>
+            <div class="slide">
+                <img src="./static/pic2.jpeg" alt="Slide 2">
+            </div>
+            <div class="slide">
+                <img src="./static/3.jpeg" alt="Slide 3">
+            </div>
+        </div>
+
+        <!-- Navigation Arrows -->
+        <button class="nav-arrow prev">&#10094;</button>
+        <button class="nav-arrow next">&#10095;</button>
+
+        <!-- Indicators -->
+        <div class="indicators">
+            <div class="indicator active" data-index="0"></div>
+            <div class="indicator" data-index="1"></div>
+            <div class="indicator" data-index="2"></div>
+        </div>
+    </div>
+</div>
+<div class="container px-4 py-5" id="featured-3">
+    <h2 class="pb-2 border-bottom" id="inter-ok">Why Join Us?</h2>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+      <div class="feature col">
+        <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-raised-hand" viewBox="0 0 16 16">
+  <path d="M6 6.207v9.043a.75.75 0 0 0 1.5 0V10.5a.5.5 0 0 1 1 0v4.75a.75.75 0 0 0 1.5 0v-8.5a.25.25 0 1 1 .5 0v2.5a.75.75 0 0 0 1.5 0V6.5a3 3 0 0 0-3-3H6.236a1 1 0 0 1-.447-.106l-.33-.165A.83.83 0 0 1 5 2.488V.75a.75.75 0 0 0-1.5 0v2.083c0 .715.404 1.37 1.044 1.689L5.5 5c.32.32.5.754.5 1.207"/>
+  <path d="M8 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3"/>
+</svg>
+        </div>
+        <h3 class="fs-2 text-body-emphasis">Generosity</h3>
+        <p class="text">Our website aims to foster kindness and trust by enabling people to help others. Users can show their kindness and increase their trustworthiness by fulfilling public requests.</p>
+
+      </div>
+      <div class="feature col">
+        <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
+  <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
+</svg>
+        </div>
+        <h3 class="fs-2 text-body-emphasis">Festivity</h3>
+        <p class="text">Create your own events or parties and share them on our website to invite the public, make memories, and have fun together.
+                            </p>
+
+      </div>
+      <div class="feature col">
+        <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-gift-fill" viewBox="0 0 16 16">
+  <path d="M3 2.5a2.5 2.5 0 0 1 5 0 2.5 2.5 0 0 1 5 0v.006c0 .07 0 .27-.038.494H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h2.038A3 3 0 0 1 3 2.506zm1.068.5H7v-.5a1.5 1.5 0 1 0-3 0c0 .085.002.274.045.43zM9 3h2.932l.023-.07c.043-.156.045-.345.045-.43a1.5 1.5 0 0 0-3 0zm6 4v7.5a1.5 1.5 0 0 1-1.5 1.5H9V7zM2.5 16A1.5 1.5 0 0 1 1 14.5V7h6v9z"/>
+</svg>
+        </div>
+        <h3 class="fs-2 text-body-emphasis">Community</h3>
+        <p class="text">Help the community by joining teams and events, and earn free gifts and rewards based on your contributions to society and change it into better place.</p>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+<script>
+  const slides = document.querySelector('.slides');
+        const prev = document.querySelector('.prev');
+        const next = document.querySelector('.next');
+        const indicators = document.querySelectorAll('.indicator');
+
+        let currentSlide = 0; // Track the current slide
+        const totalSlides = document.querySelectorAll('.slide').length;
+
+        // Function to update slide position
+        function goToSlide(slideIndex) {
+            slides.style.transform = `translateX(-${slideIndex * 100}%)`;
+            updateIndicators(slideIndex);
+            currentSlide = slideIndex;
+        }
+
+        // Update indicator active state
+        function updateIndicators(index) {
+            indicators.forEach((indicator, i) => {
+                if (i === index) {
+                    indicator.classList.add('active');
+                } else {
+                    indicator.classList.remove('active');
+                }
+            });
+        }
+
+        // Previous Button
+        prev.addEventListener('click', () => {
+            const nextSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            goToSlide(nextSlide);
+        });
+
+        // Next Button
+        next.addEventListener('click', () => {
+            const nextSlide = (currentSlide + 1) % totalSlides;
+            goToSlide(nextSlide);
+        });
+
+        // Indicator Click
+        indicators.forEach(indicator => {
+            indicator.addEventListener('click', (e) => {
+                const index = parseInt(e.target.dataset.index);
+                goToSlide(index);
+            });
+        });
+</script>
+{%endblock%}
